@@ -1,0 +1,16 @@
+Module VBModule
+    Sub Main()
+        dim i as integer
+        for i=1 to 100
+            If i mod 3 = 0 and i mod 5 = 0 Then
+                 Console.WriteLine("FooBaa")
+            ElseIf i mod 3 = 0 Then
+                 Console.WriteLine("Foo")
+            ElseIf i mod 5 = 0 Then
+                 Console.WriteLine("Baa")
+            Else     
+                Console.WriteLine(i)
+            End If    
+        next    
+    End Sub
+End Module
