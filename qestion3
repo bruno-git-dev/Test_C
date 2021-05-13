@@ -19,28 +19,33 @@ Module VBModule
         dim remove_need as integer = 0
         dim add_need as integer = 0
         dim move_need as integer = 0
- 
-        For i = 1 to Len(string2)
-            If left(string1,i) = left(string2,i) and i<Len(string2)
-            
-            Else
-                Exit For
-            End If    
-        Next    
-            
-            remove_need =  Len(string1) - i + 1
-            If remove_need > moves Then 
-                move_need = remove_need
-            Else
-                add_need = Len(string2) - (Len(string1) - remove_need)
-                move_need = add_need + remove_need
-            End If
-       
-      
-            If move_need <= moves Then
-                ConcatRemove = "yes"
-            Else
-                ConcatRemove = "no"
+        
+        If Len(string1) + Len(string2) <= moves Then
+             ConcatRemove = "yes"
+        Else     
+            For i = 1 to Len(string2)
+                If left(string1,i) = left(string2,i) and i<Len(string2)
+                
+                Else
+                    Exit For
+                End If    
+            Next    
+                
+                remove_need =  Len(string1) - i + 1
+                If remove_need > moves Then 
+                    move_need = remove_need
+                Else
+                    add_need = Len(string2) - (Len(string1) - remove_need)
+                    move_need = add_need + remove_need
+                End If
+                
+                If (move_need - moves) Mod 2 <> 0 Then
+                    ConcatRemove = "no"
+                ElseIf move_need <= moves Then
+                    ConcatRemove = "yes"
+                Else
+                    ConcatRemove = "no"
+                End If
             End If    
     End Function
 End Module
