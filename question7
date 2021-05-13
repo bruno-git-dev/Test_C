@@ -1,0 +1,4 @@
+SELECT  name FROM dogs 
+Union
+SELECT  name FROM cats
+WHERE (name not in (select name from dogs))
