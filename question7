@@ -1,4 +1,4 @@
-SELECT  name FROM dogs 
+SELECT DISTINCT nome FROM [SCADA].[dbo].[Table_1]
 Union
-SELECT  name FROM cats
-WHERE (name not in (select name from dogs))
+SELECT DISTINCT nome FROM [SCADA].[dbo].[Table_2]
+WHERE (nome not in (select nome from [SCADA].[dbo].[Table_1]))
