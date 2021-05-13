@@ -1,0 +1,11 @@
+Select 
+Case
+
+	WHEN
+	 Student.[Value]<70 THEN  NULL
+	ELSE Student.[Name]
+	END as 'Name'
+
+,Notes.Grade , Student.[Value] 
+from Student inner join Notes on Student.[Value]>=Notes.Min_Value AND Student.[Value]<=Notes.Max_Value
+order by CASE WHEN Student.[Value]<70 THEN Student.[Value] END ASC, Grade desc, [Name] desc
