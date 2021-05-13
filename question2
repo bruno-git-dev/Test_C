@@ -1,0 +1,46 @@
+Module VBModule
+    Sub Main()
+
+        Dim string1 As String = Console.ReadLine()
+        Dim string2 As String = Console.ReadLine()
+        Dim moves As Integer = Console.ReadLine()
+        string1 = Replace(string1," ","")
+        string2 = Replace(string2," ","")
+        'Constraints
+        If Len(string1) > 100 or Len(string1) < 1 or Len(string1) > 100 or Len(string1) < 1 or moves > 100 or moves < 1 Then
+            Console.WriteLine("Wrong input values")
+        Else
+            Console.WriteLine(ConcatRemove(string1,string2,moves))
+        End If
+    End Sub
+    
+    Function ConcatRemove(string1,string2,moves)
+        dim i as integer
+        dim remove_need as integer = 0
+        dim add_need as integer = 0
+        dim move_need as integer = 0
+ 
+        For i = 1 to Len(string2)
+            If left(string1,i) = left(string2,i) and i<Len(string2)
+            
+            Else
+                Exit For
+            End If    
+        Next    
+            
+            remove_need =  Len(string1) - i + 1
+            If remove_need > moves Then 
+                move_need = remove_need
+            Else
+                add_need = Len(string2) - (Len(string1) - remove_need)
+                move_need = add_need + remove_need
+            End If
+       
+      
+            If move_need <= moves Then
+                ConcatRemove = "yes"
+            Else
+                ConcatRemove = "no"
+            End If    
+    End Function
+End Module
