@@ -1,0 +1,24 @@
+    Sub Main()
+
+        Dim string1 As String = Console.ReadLine()
+        Dim string2 As String = ""
+        Dim Counter as Integer = 0
+        
+        If string1 = string2 then
+        
+        Else
+        
+            Do While string2 <> string1
+            
+                
+                Counter = Counter + 1
+                string2 = Left(string1,Counter)
+                
+            Loop
+        End If    
+     
+        Console.WriteLine("The lenght of " & string1 & " is: " & Counter )
+    End Sub
+    
+    
+End Module
